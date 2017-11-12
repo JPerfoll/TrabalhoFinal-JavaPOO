@@ -1,28 +1,43 @@
 package br.unidavi.edu.projetofinal;
 
+import br.unidavi.edu.projetofinal.Competidor;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Modalidade {
  
-    public String descricao;
-    public int tipoModalidade; // 1 - individual  |  2 - time
-    
-    public Modalidade(String descricao, int tipoModalidade) {
+    private String descricao;
+    private List<Atleta> atletas;
+    private List<Equipe> equipes;
+
+    public Modalidade(String descricao) {
         this.descricao = descricao;
-        this.tipoModalidade = tipoModalidade;
-    }
+        
+        atletas = new ArrayList<Atleta>();
+        equipes = new ArrayList<Equipe>();
+    }  
 
     public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    private void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    public int getTipoModalidade() {
-        return tipoModalidade;
+    
+    public void adicionaAtleta(Atleta atleta) {
+        atletas.add(atleta);
     }
-
-    public void setTipoModalidade(int tipoModalidade) {
-        this.tipoModalidade = tipoModalidade;
+    
+    public void adicionaAtleta(List<Atleta> atletas) {
+        this.atletas = atletas;
+    }
+    
+    public void adicionaEquipe(Equipe equipe) {
+        equipes.add(equipe);
+    }
+    
+    public void adicionaEquipe(List<Equipe> equipes) {
+        this.equipes = equipes;
     }
 }

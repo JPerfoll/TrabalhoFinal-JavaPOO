@@ -1,11 +1,14 @@
 package br.unidavi.edu.projetofinal;
 
 import java.util.Date;
+import java.util.List;
+import br.unidavi.edu.projetofinal.Modalidade;
+import java.util.ArrayList;
 
-abstract class Evento {
+public class Evento {
     private String descricao;
     private Date data;
-    private int eventoId;
+    private List<Modalidade> modalidades;
 
     public String getDescricao() {
         return descricao;
@@ -23,18 +26,41 @@ abstract class Evento {
         this.data = data;
     }
 
-    public Evento(String descricao, Date data, int eventoId) {
+    public List<Modalidade> getModalidades() {
+        return modalidades;
+    }
+
+    private void setModalidades(List<Modalidade> modalidades) {
+        this.modalidades = modalidades;
+    }
+
+    public Evento(String descricao, Date data) {
         this.descricao = descricao;
         this.data = data;
-        this.eventoId = eventoId;
+        
+        modalidades = new ArrayList<Modalidade>();
+    }
+
+    public Evento(String descricao, Date data, List<Modalidade> modalidades) {
+        this.descricao = descricao;
+        this.data = data;
+        this.modalidades = modalidades;
     }
     
-    public boolean alteraDataEvento(Date novaData) {
+    public Boolean alteraDataEvento(Date novaData) {
         try {
             this.setData(novaData);
             return true;
         } catch (Exception e) {
             return false;
-        } 
+        }
+    }
+    
+    public void adicionaModalidade(Modalidade modalidade) {
+        modalidades.add(modalidade);
+    }
+    
+    public void adicionaModalidade(List<Modalidade> modalidades) {
+        this.modalidades = modalidades;
     }
 }
