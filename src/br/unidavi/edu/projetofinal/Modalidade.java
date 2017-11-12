@@ -40,4 +40,22 @@ public class Modalidade {
     public void adicionaEquipe(List<Equipe> equipes) {
         this.equipes = equipes;
     }
+    
+    public void listaCompetidores() {
+        System.out.println("    Competidores dessa modalidade: ");
+        int i = 1;
+        
+        for (Atleta a : atletas) {
+            System.out.println("        Atleta " + i + ": " + a.getNome());
+            i++;
+        }
+        
+        int j = 1;
+        
+        for (Equipe e : equipes) {
+            System.out.println("        Equipe " + j + ": " + e.getNome());
+            e.listaAtletas();
+            j++;
+        }
+    }
 }

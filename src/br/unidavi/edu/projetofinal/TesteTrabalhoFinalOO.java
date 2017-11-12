@@ -58,15 +58,30 @@ public class TesteTrabalhoFinalOO {
         
         // Adiciona as modalidades ao evento
         evento.adicionaModalidade(modalidades);
+        if (evento.alteraDataEvento("01/01/2016")) {
+            System.out.println("Data do evento " + evento.getDescricao() + " alterada para " + evento.getData());
+        };
+
+        evento.listaModalidades();
         
         
         /* Exemplo de criação de Evento já passando uma lista de modalidades como parâmetro */
+        System.out.println("--------------");
         Evento evento2 = new Evento("Rio 2016 - Dia 2", data, modalidades);
+        if (evento2.alteraDataEvento("01/02/2016")) { // formato de data mm/dd/yyyy
+            System.out.println("Data do evento " + evento2.getDescricao() + " alterada para " + evento2.getData());
+        };
+        evento2.listaModalidades();
+        
         
         /* Exemplo de criação de Evento inserindo individualmente as modalidades depois do evento já criado */
+        System.out.println("--------------");
         Evento evento3 = new Evento("Rio 2016 - Dia 3", data);
+        if (evento3.alteraDataEvento("01/03/2016")) {
+            System.out.println("Data do evento " + evento3.getDescricao() + " alterada para " + evento3.getData());
+        };
         
         evento3.adicionaModalidade(new Modalidade("100M rasos")); 
+        evento3.listaModalidades();
     }
-    
 }

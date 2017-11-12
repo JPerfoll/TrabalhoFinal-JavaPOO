@@ -56,11 +56,34 @@ public class Evento {
         }
     }
     
+    public Boolean alteraDataEvento(String novaData) {
+        try {
+            Date data = new Date(novaData);
+            this.setData(data);
+            return true;
+        } catch (Exception e) {
+            return false;
+        } 
+    }
+    
     public void adicionaModalidade(Modalidade modalidade) {
         modalidades.add(modalidade);
     }
     
     public void adicionaModalidade(List<Modalidade> modalidades) {
         this.modalidades = modalidades;
+    }
+    
+    public void listaModalidades() {
+        System.out.println("");
+        System.out.println("Listando as modalidades do evento " + this.getDescricao() + ":");
+        int i = 1;
+        
+        for (Modalidade m : modalidades) {
+            System.out.println("");
+            System.out.println("    Modalidade " + i + ": " + m.getDescricao());
+            m.listaCompetidores();
+            i++;
+        }
     }
 }

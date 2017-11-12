@@ -52,4 +52,14 @@ public class Equipe extends Competidor {
             a.defineVencedor();
         }
     }
+    
+    public void listaAtletas() {
+        System.out.println("        Listando os atletas:");
+        int i = 1;
+        
+        for (Atleta a : jogadores) {
+            System.out.println("            Atleta " + i + ": " + a.getNome());
+            i++;
+        }
+    }
 }
